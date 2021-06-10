@@ -13,6 +13,6 @@ mocks:
 	mockgen -source=store/freecache.go -destination=test/mocks/store/clients/freecache_interface.go -package=mocks
 	mockgen -source=store/go_cache.go -destination=test/mocks/store/clients/go_cache_interface.go -package=mocks
 test:
-	GOGC=10 go test -p=4 ./...
+	GOGC=10 go test -mod=mod -p=4 ./...
 benchmark-store:
 	cd store && go test -bench=. -benchmem -benchtime=1s  -count=1 -run=none
